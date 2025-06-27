@@ -1,0 +1,3 @@
+hcaptcha solver
+faucet
+login
