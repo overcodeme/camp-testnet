@@ -1,10 +1,7 @@
-from file_manager import load_yaml
 from aiohttp import ClientSession
 import asyncio
 import random
 
-
-settings = load_yaml('config.yaml')
 
 class hCaptchaSolver:
     def __init__(self, api_key, proxy=None):

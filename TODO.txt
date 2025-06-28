@@ -1,3 +1,4 @@
 hcaptcha solver
 faucet
 login
+mint clusters (domens)
