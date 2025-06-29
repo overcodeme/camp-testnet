@@ -196,5 +196,9 @@ cython_debug/
 # Private keys
 data/wallets.txt
 
+# Proxies
+data/proxies.txt
+
 # Accounts info
 data/wallets_data.json
+

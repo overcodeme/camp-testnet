@@ -6,7 +6,7 @@ import aiohttp
 
 settings = load_yaml('config.yaml')
 
-async def fetch_faucet(wallet_address, session = aiohttp.ClientSession()):
+async def fetch_faucet(wallet_address, session = aiohttp.ClientSession):
     url = 'https://faucet-go-production.up.railway.app/api/claim'
     solver = hCaptchaSolver(settings['SOLVECAPTCHA_KEY'])
     await solver.create_captcha_task(
