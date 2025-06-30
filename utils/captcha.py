@@ -17,11 +17,12 @@ class hCaptchaSolver:
             self.task_id = data['request']
             
     async def get_captcha_result(self):
-        url = f'http://api.solvecaptcha.com/res.php?key={self.api_key}8&action=get&id={self.task_id}'
+        url = f'http://api.solvecaptcha.com/res.php?key={self.api_key}&action=get&id={self.task_id}'
         while True:
             async with self.session.get(url) as response:
                 data = await response.text()
-                if 'CAPCHA_NOT_READY' in await response.text():
+                print(data)
+                if 'CAPCHA_NOT_READY' in data:
                     await asyncio.sleep(random.randint(15, 30))
                     continue
-                return data
+                return data.split('|')[1]

@@ -8,13 +8,12 @@ settings = load_yaml('config.yaml')
 
 async def fetch_faucet(wallet_address, session = aiohttp.ClientSession):
     url = 'https://faucet-go-production.up.railway.app/api/claim'
-    solver = hCaptchaSolver(settings['SOLVECAPTCHA_KEY'])
+    solver = hCaptchaSolver(api_key=settings['SOLVECAPTCHA_KEY'])
     await solver.create_captcha_task(
         sitekey='5b86452e-488a-4f62-bd32-a332445e2f51',
         page_url='faucet.campnetwork.xyz'
     )
     captcha_token = await solver.get_captcha_result()
-
     headers = {
         'accept': '*/*',
         'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7,zh-TW;q=0.6,zh;q=0.5,uk;q=0.4',
