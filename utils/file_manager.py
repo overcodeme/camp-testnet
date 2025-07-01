@@ -13,6 +13,13 @@ def load_txt(file_path):
             return data
 
 
+def save_wallet_session_data(wallet_address, key, value, file_path='config.yaml'):
+    data = load_json(file_path)
+    with open(file_path, 'w') as file:
+        data[wallet_address][key] = value
+        json.dump(data, file, indent=4)
+
+
 def load_json(file_path):
     if not os.path.exists(file_path):
         return {}

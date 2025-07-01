@@ -19,6 +19,7 @@ async def handle_wallet(wallet: Account, action_name, proxy=None):
     wallet = Account.from_key(wallet)
     camp = CampClient(wallet=wallet, proxy=proxy)
     try:
+        await camp.handle_account()
         action_func = getattr(camp, action_name)
         await action_func()
     except Exception as e:
